@@ -1,6 +1,9 @@
-export default function Result() {
-  return (
-    <>
+export default function Result({ input }) {
+  console.log(input);
+  return <p>results</p>;
+}
+
+/* <>
       <table id="result">
         <thead>
           <tr>
@@ -35,6 +38,4 @@ export default function Result() {
           </tr>
         </tbody>
       </table>
-    </>
-  );
-}
+    </>*/

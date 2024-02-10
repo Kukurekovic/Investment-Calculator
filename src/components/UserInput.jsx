@@ -1,57 +1,46 @@
-import { useState } from "react";
-
-export default function UserInput() {
-  const [inputs, setInputs] = useState({});
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
-
+export default function UserInput({ onChangeInput, userInput }) {
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
-        <label>
-          Initial Investment
+        <p>
+          <label>Initial Investment</label>
           <input
             type="number"
-            name="iInvestment"
-            value={inputs.iInvestment || ""}
-            onChange={handleChange}
+            required
+            value={userInput.initialInvestment}
+            onChange={(e) => onChangeInput("initialInvestment", e.target.value)}
           />
-        </label>
-
-        <label>
-          Annual Investment
+        </p>
+        <p>
+          <label>Annual Investment</label>
           <input
             type="number"
-            name="aInvestment"
-            value={inputs.aInvestment || ""}
-            onChange={handleChange}
+            required
+            value={userInput.annualInvestment}
+            onChange={(e) => onChangeInput("annualInvestment", e.target.value)}
           />
-        </label>
+        </p>
       </div>
       <div className="input-group">
-        <label>
-          Exprected return
+        <p>
+          <label>Expected return</label>
           <input
             type="number"
-            name="eReturn"
-            value={inputs.eReturn || ""}
-            onChange={handleChange}
+            required
+            value={userInput.expectedReturn}
+            onChange={(e) => onChangeInput("expectedReturn", e.target.value)}
           />
-        </label>
-        <label>
-          Duration
+        </p>
+        <p>
+          <label>Duration</label>
           <input
             type="number"
-            name="duration"
-            value={inputs.duration || ""}
-            onChange={handleChange}
+            required
+            value={userInput.duration}
+            onChange={(e) => onChangeInput("duration", e.target.value)}
           />
-        </label>
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
